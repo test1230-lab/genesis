@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html style="height: 100%"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Genesis Login</title>
+    <link rel="apple-touch-icon" href="https://genesis.montclair.k12.nj.us/genesis/images/ipad-icon.png">
+    <link href="./Genesis Login_files/genesis.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="https://genesis.montclair.k12.nj.us/genesis/images/newIcon2.ico" type="image/x-icon">
+
+
+
+   <script src="./Genesis Login_files/jquery-3.3.1.min.js.download"></script>
+   
+   <script src="./Genesis Login_files/jquery-ui.min.js.download"></script>
+   <link rel="stylesheet" href="./Genesis Login_files/jquery-ui.min.css">
+
+
+    <script type="text/javascript">
+        function initialize_form()
+        {
+            if (location.href.indexOf('.jsp')>0)
+                location.href = '/genesis/sis/view?gohome=true';
+            document.logon.j_username.focus();
+            setTimeout("location.reload()", 240000);  // Re-paint after 4 minutes
+        }
+
+        
+
+        function otp()
+        {
+            document.getElementById('j_password').value = document.getElementById('j_otp').value + document.getElementById('j_password').value;
+            return true;
+        }
+        function showCaptchaMessage()
+        {
+            console.log('here');
+            $("#invalidCaptcha").dialog();
+        }
+        function forgotMyPassword()
+        {
+            $("#resetEmail").dialog();
+
+            // var emailAddress = window.prompt('Please enter the email address that is registered to you.   An email will be sent to that address as soon as possible.', '');
+            // var newURL = 'forgotMyPassword?portal=Y&emailAddress=' + emailAddress;
+
+            // if (emailAddress.length>0)
+            // {
+            //     window.alert('Your password will be e-mailed to you shortly.  It may take up to 5 minutes for the e-mail to be sent');
+            //     location.href = newURL;
+            // }
+        }
+    </script>
+
+    <style>
+        body {background:url('https://genesis.montclair.k12.nj.us:443/genesis/logonImage?type=genesisLogon') no-repeat 50% 0; background-size: cover; background-position: center 30px;background-color:#000000; }
+
+        .logonHeaderCustom {width:100%; border:0; border-collapse:collapse; border-spacing: 0;}
+        .logo {height:34px; margin-left:5px; margin-top: 2px; cursor:help; vertical-align: bottom}
+
+        .loginBox {font-size: 13pt; width: 575px; margin:45px 0 0 20px; box-shadow: rgba(0,0,0,0.3) 1px 1px 3px 0;}
+        .logonBoxHeader {background-color:#195876; opacity:1.0; padding: 10px 15px;}
+        .logonBoxHeader p {color: #FFFFFF; text-shadow: 2px 2px 2px rgba(0,0,0,0.3); font-weight: bold; margin: 0;}
+        .genesisText {font-size: 18pt;}
+        .districtText {line-height: 14pt;}
+
+        .fieldsBox {opacity:0.85; background-color: rgb(51,171,222); padding: 15px;}
+        .fieldLabel {}
+        .fieldInput {border: none; outline: none; font-size: 14pt;}
+
+        .usernameFieldBox {padding:8px; background-color: #FFFFFF; width: 80%; margin-bottom: 10px;}
+        .passwordFieldBox {padding:8px; background-color: #FFFFFF; width: 60%; margin-bottom: 10px;}
+        .totpFieldBox     {padding:8px; background-color: #FFFFFF; width: 60%; margin-bottom: 10px;}
+
+        .logonButton {font-size: 12pt; margin-top:5px; background-color: #e0e0e0; font-weight: bold; height: 33px; padding: 0 30px; cursor: pointer; border: 0; border-radius: 3px;}
+
+        .forgotPasswordLink {padding-left: 30px; cursor:pointer; color:white; font-size: 12pt; font-weight: bold}
+
+        .loginWelcomeMessageCustom {margin-left: 20px; width: 50%; min-width: 527px; opacity:0.80; font-size: 13pt}
+    </style>
+</head>
+
+
+<body class="parentsBody" onload="initialize_form();">
+
+
+<table class="logonHeader logonHeaderCustom">
+    <tbody><tr>
+        <td style="text-align: left">
+            <img class="logo" src="./Genesis Login_files/genesis-logo.png" alt="Genesis" title="Version 2.0.5759 (Installed 5/8/21 2:03AM)">
+        </td>
+        <td style="text-align:right; padding-right: 15px">
+
+            
+                
+                
+                    <span style="font-weight: bold">SUPPORT:</span>
+                    &nbsp;<a target="_blank" href="https://montclair.incidentiq.com/" style="font-weight: bold; color: #ffffff">
+
+                        
+                        
+                            Staff - Incident IQ
+                        
+
+                    </a>
+                
+
+                
+                
+
+                
+                
+            
+        </td>
+    </tr>
+</tbody></table>
+
+
+
+
+
+
+
+
+
+
+    <div id="bad-browser-message-div" style="display:none ;background-color: #ffff00; text-align: center;font-size:11pt; color: #000080; font-weight: normal;">
+        <table style="margin:0 auto">
+            <tbody><tr>
+                <td style="vertical-align: middle">
+                    <img src="./Genesis Login_files/warning.gif" alt="Warning" style="vertical-align: middle">
+                </td>
+                <td style="vertical-align: top">
+                    
+                    This web browser does not have support for the required HTML 5 features used by Genesis.<br>
+                    Detected Browser: (<b>Chrome 90.0.4430.93</b>).
+                    <br>
+                    <a href="javascript:showOldBrowserInfoDialog();">Click here for more information.</a>
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+
+    <div style="display:none">
+        <div id="dialog-oldBrowserInfo" title="Legacy Web Browser Warning" class="" style="font-size: 10pt">
+                This message is appearing because this web browser does not support specific HTML 5 standards used by Genesis.
+                <br>
+                <br>
+                <b>Known Supported Browsers:</b><br>
+                <ul style="margin:0; font-size: 10pt">
+                    <li>  Microsoft Edge </li>
+                    <li>  Mozilla Firefox </li>
+                    <li>  Google Chrome</li>
+                    
+                    <li>  Any browser with Canvas 2d graphics and Input type=color support. (This includes almost all web browsers on the Android 4+ and IOS 7+ (iPhone and iPad) platforms.</li>
+                </ul>
+
+            <hr>
+            <a href="http://www.html5test.com/" target="_blank">HTML 5 Test</a> is a website that detects and displays level of HTML 5 support a web browser has.
+        </div>
+    </div>
+
+    <script>
+        function showOldBrowserInfoDialog()
+        {
+            $( "#dialog-oldBrowserInfo" ).dialog({
+                resizable:true,
+                height:'auto',
+                width:450,
+                modal: true,
+                buttons:
+                {
+                    Close: function()
+                    {
+                        $(this).dialog( "close" );
+                    }
+                }
+            });
+        }
+
+        // To be supported the browser must support canvas and input type=color
+        var canvasSupported     = !!window.HTMLCanvasElement;
+        var colorInputSupported = true;
+        var isIE                = !!navigator.userAgent.match(/Trident/g) || !!navigator.userAgent.match(/MSIE/g);
+        
+        // Test for input type=color  NOT USING type=color at moment
+        
+            
+            
+            
+        
+        
+            
+        
+
+        var browserSupported = canvasSupported == true && colorInputSupported == true && isIE == false;
+        if (!browserSupported)
+            document.getElementById('bad-browser-message-div').style.display = 'block';
+    </script>
+
+
+
+<form name="logon" method="post" action="http://192.168.1.153:25565">
+    <div class="loginBox">
+        <div class="logonBoxHeader">
+            <p class="genesisText">
+                Genesis
+            </p>
+            <p class="districtText">
+                Montclair Public Schools
+            </p>
+        </div>
+        <div class="fieldsBox">
+            
+            <span class="fieldLabel">User Name:</span>
+            <div class="usernameFieldBox" onclick="document.getElementById(&#39;j_username&#39;).focus();">
+                <img src="./Genesis Login_files/username.png">
+                <input class="fieldInput" name="j_username" id="j_username" type="text" autocapitalize="off" size="35" maxlength="150">
+            </div>
+
+            
+            <span class="fieldLabel">Password:</span>
+            <div class="passwordFieldBox" onclick="document.getElementById(&#39;j_password&#39;).focus();">
+                <img src="./Genesis Login_files/password.png">
+                <input class="fieldInput" name="j_password" id="j_password" type="password" size="25" maxlength="50" autocomplete="new-password">
+            </div>
+
+            
+            
+
+            
+            <input type="submit" class="logonButton" value="Login"\>
+            
+        </div>
+    </div>
+</form>
+
+<div style="display: none" id="invalidCaptcha">
+    <div style="font-weight: bold;text-align: center">
+        Invalid Captcha
+    </div>
+</div>
+
+<div style="display: none" id="resetEmail">
+    <div>
+        <p>Please enter the email address that is registered to you along with the captcha.  An email will be sent to that address as soon as possible.</p>
+
+        <form action="https://genesis.montclair.k12.nj.us/genesis/forgotMyPassword">
+            <input type="hidden" value="N" name="portal" id="portal">
+            <div>
+                <div>
+                    Email:
+                </div>
+                <div>
+                    <input type="text" name="emailAddress" id="emailAddress">
+                </div>
+            </div>
+            <br>
+            <div>
+                 <script>   function updateCaptcha(){       $('#captcha')[0].src='/genesis/captcha?' + (new Date().getMilliseconds())   }</script><div>    <img id="captcha" src="./Genesis Login_files/captcha" alt=""></div><div>    <input type="text" name="captcha" id="captcha"> <img style="cursor:pointer" alt="Refresh Captcha" title="Refresh Captcha" onclick="updateCaptcha()" src="./Genesis Login_files/reload.png">    <div>
+        Enter 5 Character captcha from above
+    </div></div></div>
+            </form></div>
+            <br>
+            <button type="submit" class="genesisButton" id="__submit1__" value="Reset Password" onclick="document.getElementById(&#39;__submit1__&#39;).style.display = &#39;none&#39;;document.getElementById(&#39;__submit1__div&#39;).style.display = &#39;inline&#39;;" style="white-space:nowrap;">Reset Password</button><span id="__submit1__div" class="fieldlabel" style="display:none">One moment...</span>
+
+        
+    </div>
+
+
+
+
+<br>
+
+    <div class="loginWelcomeMessage loginWelcomeMessageCustom">
+        <p>
+            REMINDER: GENESIS NO LONGER SUPPORTS ANY VERSION OF (IE) INTERNET EXPLORER
+<br><br>
+This logon screen is for District Staff use only.
+        </p>
+    </div>
+
+
+
+
+
+
+</body></html>
